@@ -1,0 +1,31 @@
+media:
+  input: source/images
+  output: /images
+  rename: safe
+  extensions: [png, jpg, jpeg, gif, webp]
+
+content:
+  - name: diary
+    label: 日誌
+    type: collection
+    path: source/_posts
+    filename:
+      template: "{year}-{month}-{day}-{title}.md"
+      field: false
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: 標題
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+        required: true
+      - name: body
+        label: 內容
+        type: rich-text
